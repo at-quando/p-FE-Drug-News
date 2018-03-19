@@ -1,0 +1,14 @@
+.input-w-icon {
+  width: auto;
+  input, span {
+    border : 0
+  }
+  input {
+    background-color: $grey-color;
+    padding: 0.3rem 0.5rem;
+  }
+  span {
+    background-color: $main-color;
+    color: white;
+  }
+}

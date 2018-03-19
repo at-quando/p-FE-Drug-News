@@ -1,13 +1,13 @@
 <template>
-  <footer>
-  </footer>
+<div class="home">
+</div>
 </template>
 
 <script>
 export default {
-  name: 'footer-page',
-  props: ['title']
+  name: 'home-page'
 }
 </script>
 <style>
+
 </style>

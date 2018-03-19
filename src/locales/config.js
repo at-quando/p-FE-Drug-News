@@ -13,7 +13,7 @@ import vn from './i18n/vn_VN'
 Vue.use(VueI18n)
 // Create VueI18n instance with options
 export default new VueI18n({
-  locale: 'en',
+  locale: 'vn',
   messages: {
     en: {
       lang: en
