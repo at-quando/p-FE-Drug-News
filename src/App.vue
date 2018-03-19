@@ -7,17 +7,17 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
-import * as types from "./store/types";
+import { mapActions } from 'vuex'
+import * as types from './store/types'
 
 export default {
-  name: "App",
+  name: 'App',
   methods: {
     ...mapActions({
       test: types.TEST
     })
   }
-};
+}
 </script>
 
 <style>

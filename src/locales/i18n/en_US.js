@@ -1,5 +1,5 @@
-import map from './en/map'
+import nav from './en/nav'
 
 export default {
-  map
+  nav
 }
