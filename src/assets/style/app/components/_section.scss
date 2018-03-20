@@ -1,0 +1,11 @@
+.section-page {
+  .title-section {
+    text-transform: uppercase;
+    border-bottom: 3px solid $main-color;
+    display: inline-block;
+  }
+  .border-title {
+    border-bottom: 2px solid $main-color;
+    margin-bottom: 2rem;
+  }
+}

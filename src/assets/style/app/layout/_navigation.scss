@@ -3,6 +3,9 @@
   .nav-link {
     text-transform: uppercase;
   }
+  &:first-child {
+    padding-left: 0;
+  }
 }
 .navbar {
   padding: 0;

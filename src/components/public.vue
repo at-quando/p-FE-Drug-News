@@ -1,16 +1,18 @@
 <template>
   <div id="app">
-    <router-view name="b"/>
-    <router-view name="a"/>
-    <router-view/>
+    <header-page></header-page>
+    <div class="container">
+      <router-view/>
+    </div>
+    <footer-page></footer-page>
   </div>
 </template>
 <script>
 import { mapActions } from 'vuex'
-import * as types from './store/types'
+import * as types from '../store/types'
 
 export default {
-  name: 'App',
+  name: 'Public',
   methods: {
     ...mapActions({
       test: types.TEST
