@@ -1,11 +1,12 @@
 <template>
   <div id="app">
     <header-page></header-page>
-    <router-view/>
+    <div class="container">
+      <router-view/>
+    </div>
     <footer-page></footer-page>
   </div>
 </template>
-
 <script>
 import { mapActions } from 'vuex'
 import * as types from './store/types'
@@ -19,7 +20,6 @@ export default {
   }
 }
 </script>
-
 <style>
 
 </style>

@@ -1,0 +1,54 @@
+.article-item {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  height: 100%;
+  .article-meta {
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    padding: 1rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    min-height: 30%;
+    max-height: 40%;
+    p {
+      height: 70%;
+      overflow: hidden;
+    }
+  }
+  .article-tag {
+    background-color: $main-color;
+    padding: 0.5rem 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+.home-box, .cat-box{
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+  >.row {
+    overflow: hidden;
+    height: 500px;
+  }
+}
+.home-box {
+  .medium {
+    height: calc(200%/3 - 15px);
+    overflow: hidden;
+    margin-bottom: 15px;
+  }
+}
+.cat-box {
+  .medium {
+    height: calc(50% - 7.5px);
+    overflow: hidden;
+    margin-bottom: 15px;
+  }
+}
+.small {
+  height: calc(100%/3);
+  overflow: hidden;
+}
