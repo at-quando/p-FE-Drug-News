@@ -10,6 +10,9 @@
 @import "components/cover";
 @import "components/dropdown";
 @import "components/inputs";
+@import "components/article";
+@import "components/section";
+@import "components/social";
 
 @import "layout/footer";
 @import "layout/grid";
@@ -17,7 +20,9 @@
 @import "layout/navigation";
 @import "layout/sidebar";
 
+
 @import "pages/home";
 
 @import "plugin/flags";
+@import "plugin/pagination";
 

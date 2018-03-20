@@ -14,10 +14,13 @@ import 'element-ui/lib/theme-chalk/index.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import 'flag-icon-css/css/flag-icon.css'
-import AppHeader from './components/common/header-page.vue'
-import AppFooter from './components/common/footer-page.vue'
 import './assets/style/app/main.scss'
 import PluginComponents from './components/plugin/index'
+import GlobalComponents from './components/common/index'
+import fontawesome from '@fortawesome/fontawesome'
+import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
+import falight from '@fortawesome/fontawesome-free-brands'
+import fasolid from '@fortawesome/fontawesome-free-solid'
 
 Vue.use(ElementUI)
 Vue.use(VueI18n)
@@ -25,9 +28,10 @@ Vue.use(Vuex)
 Vue.use(BootstrapVue)
 Vue.use(VueResource)
 Vue.use(PluginComponents)
+Vue.use(GlobalComponents)
 
-Vue.component('header-page', AppHeader)
-Vue.component('footer-page', AppFooter)
+fontawesome.library.add(falight, fasolid)
+Vue.component(FontAwesomeIcon.name, FontAwesomeIcon)
 
 Vue.http.options.root = process.env.SERVER_IP
 
