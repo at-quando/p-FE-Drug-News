@@ -32,7 +32,7 @@
           </p>
         </div>
         <div class="col-md-6 right-content">
-          <ul class="col-md-4 footer-menu">
+          <ul class="footer-menu">
             <li class="menu-item"><a href="#" class="menu-link">trang chủ</a></li>
             <li class="menu-item"><a href="#" class="menu-link">ăn uống-dinh dưỡng</a></li>
             <li class="menu-item"><a href="#" class="menu-link">năng lượng chữa bệnh</a></li>

@@ -1,6 +1,5 @@
 footer {
   background-color: #e94747;
-  height: 460px;
   padding-top: 50px;
   color: #fff;
   .footer-logo {
@@ -39,9 +38,14 @@ footer {
     list-style-type: none;
     border-bottom: 2px solid #fff;
     padding-right: 0px;
+    margin-bottom: 30px;
   }
   .menu-item {
     text-align: right;
+    margin: 22px 0;
+    &:first-child {
+      margin-top: 50px;
+    }
   }
   .menu-link {
     color: #fff;
