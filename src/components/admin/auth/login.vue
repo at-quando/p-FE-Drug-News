@@ -4,12 +4,12 @@
       <el-col :span="8" :offset="8">
         <div class="grid-content bg-purple">
           <h2>Login</h2>
-          <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="120px" class="demo-ruleForm">
-            <el-form-item label="Password" prop="pass">
-              <el-input type="password" v-model="ruleForm2.pass" auto-complete="off"></el-input>
+          <el-form :model="ruleForm2" status-icon ref="ruleForm2" label-width="120px" class="demo-ruleForm">
+            <el-form-item label="Email" prop="email">
+              <el-input type="text" v-model="ruleForm2.email" auto-complete="off"></el-input>
             </el-form-item>
-            <el-form-item label="Confirm" prop="checkPass">
-              <el-input type="password" v-model="ruleForm2.checkPass" auto-complete="off"></el-input>
+            <el-form-item label="Confirm" prop="pass">
+              <el-input type="password" v-model="ruleForm2.pass" auto-complete="off"></el-input>
             </el-form-item>
             <el-form-item>
               <el-button type="primary" @click="submitForm('ruleForm2')">Submit</el-button>
@@ -22,41 +22,16 @@
   </div>
 </template>
 <script>
+import {mapActions} from 'vuex'
+import * as types from '../../../store/types'
+
 export default {
   name: 'Login',
   data () {
-    var validatePass = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error('Please input the password'))
-      } else {
-        if (this.ruleForm2.checkPass !== '') {
-          this.$refs.ruleForm2.validateField('checkPass')
-        }
-        callback()
-      }
-    }
-    var validatePass2 = (rule, value, callback) => {
-      if (value === '') {
-        callback(new Error('Please input the password again'))
-      } else if (value !== this.ruleForm2.pass) {
-        callback(new Error('Two inputs don\'t match!'))
-      } else {
-        callback()
-      }
-    }
     return {
       ruleForm2: {
         pass: '',
-        checkPass: '',
-        age: ''
-      },
-      rules2: {
-        pass: [
-          { validator: validatePass, trigger: 'blur' }
-        ],
-        checkPass: [
-          { validator: validatePass2, trigger: 'blur' }
-        ]
+        email: ''
       }
     }
   },
@@ -64,7 +39,9 @@ export default {
     submitForm (formName) {
       this.$refs[formName].validate((valid) => {
         if (valid) {
-          alert('submit!')
+          this.login(this.$refs[formName]._props.model).then(res => {
+            this.$router.push({ path: `/admin` })
+          })
         } else {
           console.log('error submit!!')
           return false
@@ -73,7 +50,10 @@ export default {
     },
     resetForm (formName) {
       this.$refs[formName].resetFields()
-    }
+    },
+    ...mapActions({
+      login: types.LOGIN
+    })
   }
 }
 </script>
