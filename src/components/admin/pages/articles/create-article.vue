@@ -2,18 +2,18 @@
   <div id="new-article">
     <h1>CreateArticle</h1>
     <div class="grid-content bg-purple">
-      <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="120px" class="demo-ruleForm">
+      <el-form :model="ruleForm2" status-icon ref="ruleForm2" label-width="120px" class="demo-ruleForm">
         <el-form-item label="Title">
-          <el-input type="password" v-model="ruleForm2.pass" auto-complete="off"></el-input>
+          <el-input type="text" v-model="ruleForm2.title" auto-complete="off"></el-input>
         </el-form-item>
         <el-form-item label="Activity zone">
-          <el-select v-model="category" placeholder="please select your zone">
+          <el-select v-model="ruleForm2.categoryId" placeholder="please select your zone">
             <el-option label="Zone one" value="shanghai"></el-option>
             <el-option label="Zone two" value="beijing"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="Content">
-          <quill-editor v-model="content"
+          <quill-editor v-model="ruleForm2.content"
             ref="myQuillEditor"
             :options="editorOption">
           </quill-editor>
@@ -28,17 +28,20 @@
 </template>
 <script>
 import {quillEditor} from 'vue-quill-editor'
+import { mapActions } from 'vuex'
+import * as types from '../../../../store/types'
+
 export default {
   name: 'CreateArticle',
   data () {
     return {
       ruleForm2: {
-        pass: '',
-        checkPass: '',
-        age: ''
+        title: '',
+        categoryId: '',
+        content: ''
       },
-      rules2: {
-      },
+      imageList: [],
+      linkImg: '',
       editorOption: {
         modules: {
           toolbar: [
@@ -57,15 +60,54 @@ export default {
             ['clean'],
             ['link', 'image', 'video']
           ]
-          // syntax: {
-          //   highlight: text => hljs.highlightAuto(text).value
-          // }
         }
       }
     }
   },
   components: {
     quillEditor
+  },
+  methods: {
+    ...mapActions({
+      getLinkImg: types.UPLOAD_IMG,
+      createArticle: types.CREATE_ARTICLE
+    }),
+    onEditorChange (value) {
+      var img = document.createElement('img')
+      this.imageList.push(value)
+      img.src = this.$options.filters.takeImage(value)
+      this.editContent += img.outerHTML
+      this.ruleForm2.content = this.editContent
+    },
+    submitForm (formName) {
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          this.createArticle(this.$refs[formName]._props.model).then(res => {
+            this.$router.push({ name: 'Admin ShowArticle', params: { id: res.body._id } })
+          })
+        } else {
+          console.log('error submit!!')
+          return false
+        }
+      })
+    },
+  },
+  mounted () {
+    document.getElementsByClassName('ql-image')[0].onclick = () => {
+      this.editContent = this.ruleForm2.content
+      document.getElementsByClassName('ql-image')[1].onchange = () => {
+        this.getLinkImg(event.target.files[0]).then(res => {
+          this.linkImg = res.body.link
+        }).catch (function (e) {
+          console.log(e)
+        })
+      }
+    }
+  },
+  watch: {
+    linkImg: function (value) {
+      this.onEditorChange(value)
+    }
   }
 }
 </script>

@@ -21,6 +21,7 @@ import fontawesome from '@fortawesome/fontawesome'
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import falight from '@fortawesome/fontawesome-free-brands'
 import fasolid from '@fortawesome/fontawesome-free-solid'
+import filter from './helper/filter'
 
 Vue.use(ElementUI)
 Vue.use(VueI18n)
@@ -37,12 +38,30 @@ Vue.http.options.root = process.env.SERVER_IP
 
 Vue.config.productionTip = false
 
-Vue.http.headers.common['Access-Token'] = localStorage.getItem('ACCESS_TOKEN')
-Vue.http.headers.common['Uid'] = localStorage.getItem('UID')
+Vue.http.headers.common['Access-Token'] = localStorage.getItem('ACCESS_TOKEN') || null
+Vue.http.headers.common['Uid'] = localStorage.getItem('UID') || null
+
+router.beforeEach((to, from, next) => {
+  if (to.matched[0].meta.requiresAuth === true) {
+    store.dispatch('auth/CHECK_LOGIN').then(response => {
+      if (response.body.account && localStorage.getItem('ACCESS_TOKEN')) {
+        next()
+      } else {
+        next({path: '/login'})
+      }
+    }).catch(function (e) {
+      next({path: '/login'})
+    })
+  } else {
+    next()
+  }
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  filter,
   i18n,
   store,
   components: {
