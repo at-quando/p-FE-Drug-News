@@ -54,9 +54,15 @@
         </el-menu-item-group>
       </el-submenu>
     </el-menu>
+    <div class="admin-panel">
+      <font-awesome-icon :icon="['fas', 'power-off']" @click="logoutActions()" />
+    </div>
   </div>
 </template>
 <script>
+import {mapActions} from 'vuex'
+import * as types from '../../../store/types'
+
 export default {
   data () {
     return {
@@ -69,7 +75,14 @@ export default {
     },
     handleClose (key, keyPath) {
       console.log(key, keyPath)
-    }
+    },
+    logoutActions () {
+      this.logout()
+      this.$router.push({ path: `/login` })
+    },
+    ...mapActions({
+      logout: types.LOGOUT
+    })
   }
 }
 </script>
@@ -91,5 +104,11 @@ export default {
   }
   .el-menu {
     border-right: 0;
+  }
+  .admin-panel {
+    padding-left: 1rem;
+    position: fixed;
+    bottom: 0;
+    font-size: 2rem;
   }
 </style>

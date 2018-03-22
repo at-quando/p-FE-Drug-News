@@ -6,6 +6,7 @@ import Public from '../components/public.vue'
 import Admin from '../components/admin/admin.vue'
 import AdminCategories from '../components/admin/pages/categories/categories.vue'
 import AdminCreateArticle from '../components/admin/pages/articles/create-article.vue'
+import AdminShowArticle from '../components/admin/pages/articles/show-article.vue'
 import AdminListArticles from '../components/admin/pages/articles/list-articles.vue'
 import AdminUpdateInfo from '../components/admin/pages/information/update-info.vue'
 import AdminUser from '../components/admin/pages/users/users.vue'
@@ -13,7 +14,7 @@ import AdminLogin from '../components/admin/auth/login.vue'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   routes: [
     {
@@ -33,7 +34,7 @@ export default new Router({
       path: '/admin',
       name: 'Admin',
       components: {b: Admin},
-      // meta: { requiresAuth: true },
+      meta: { requiresAuth: true },
       children: [
         {
           path: 'categories',
@@ -44,6 +45,11 @@ export default new Router({
           path: 'articles',
           component: AdminListArticles,
           name: 'Admin ListArticles'
+        },
+        {
+          path: 'articles/:id',
+          component: AdminShowArticle,
+          name: 'Admin ShowArticle'
         },
         {
           path: 'articles/new',
@@ -73,3 +79,5 @@ export default new Router({
     }
   ]
 })
+
+export default router
