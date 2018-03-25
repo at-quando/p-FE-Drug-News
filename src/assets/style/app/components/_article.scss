@@ -52,3 +52,44 @@
   height: calc(100%/3);
   overflow: hidden;
 }
+
+.article {
+  &-small {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #b7b7b7;
+
+    p {
+      color: red;
+    }
+
+    h5 {
+      color: #696969;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &-big {
+    &-bg {
+      min-height: 230px;
+      margin-bottom: 15px;
+    }
+
+    h5 {
+      color: #696969;
+      margin-bottom: 15px;
+    }
+
+    .daytime {
+      color: red;
+    }
+
+    .desc {
+      color: #696969;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+  }
+}
