@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import HomePage from '../components/pages/home.vue'
 import Public from '../components/public.vue'
+import CatPage from '../components/pages/cat.vue'
 
 import Admin from '../components/admin/admin.vue'
 import AdminCategories from '../components/admin/pages/categories/categories.vue'
@@ -27,6 +28,19 @@ const router = new Router({
           path: '/home',
           component: HomePage,
           name: 'Home Page'
+        }
+      ]
+    },
+    {
+      path: '/cat',
+      name: 'Public',
+      components: {a: Public},
+      redirect: '/cat',
+      children: [
+        {
+          path: '/cat',
+          component: CatPage,
+          name: 'Cat Page'
         }
       ]
     },

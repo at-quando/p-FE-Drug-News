@@ -40,7 +40,7 @@
             <li class="menu-item"><a href="#" class="menu-link">về chúng tôi</a></li>
           </ul>
           <p class="email-register">
-            Đăng kí thông báo e-mail<br> để cập nhật những tin tức mới nhất từ Về Với Yêu Thương
+            Đăng kí thông báo e-mail <br> để cập nhật những tin tức mới nhất từ Về Với Yêu Thương
           </p>
           <div class="col-md-9 remove-padding">
             <div class="col-auto">

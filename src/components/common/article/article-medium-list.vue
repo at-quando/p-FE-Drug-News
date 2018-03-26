@@ -1,18 +1,12 @@
 <template>
   <section-page title="an uong dinh duong">
     <div slot="content">
-      <div class="article-grid">
-        <div class="row">
-          <div class="col-md-6">
-            <article-big :article="article"></article-big>
-          </div>
-          <div class="col-md-6 nopadding-left article-small-list">
-            <article-small class="article-small-item" :article="article"></article-small>
-            <article-small class="article-small-item" :article="article"></article-small>
-            <article-small class="article-small-item" :article="article"></article-small>
-            <article-small class="article-small-item" :article="article"></article-small>
-          </div>
-        </div>
+      <div class="article-medium-list">
+        <article-medium class="article-medium-item" :article="article"></article-medium>
+        <article-medium class="article-medium-item" :article="article"></article-medium>
+        <article-medium class="article-medium-item" :article="article"></article-medium>
+        <article-medium class="article-medium-item" :article="article"></article-medium>
+        <article-medium class="article-medium-item" :article="article"></article-medium>
       </div>
     </div>
   </section-page>
@@ -20,7 +14,7 @@
 
 <script>
 export default {
-  name: 'article-grid',
+  name: 'article-medium-list',
   data () {
     return {
       article: {

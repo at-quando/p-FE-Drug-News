@@ -10,7 +10,7 @@
       <article-grid class="col-md-9"></article-grid>
     </div>
   </div>
-  <pagination></pagination>
+  <!-- <pagination></pagination> -->
 </div>
 </template>
 

@@ -69,6 +69,22 @@
     }
   }
 
+  &-medium {
+    &-title {
+      color: #696969;
+      margin-bottom: 1rem;
+    }
+
+    &-daytime {
+      color: red;
+      margin-bottom: 1rem;
+    }
+
+    &-decs {
+      color: #696969;
+    }
+  }
+
   &-big {
     &-bg {
       min-height: 230px;
@@ -92,4 +108,10 @@
       margin-bottom: 15px;
     }
   }
+}
+
+.pagination-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
 }
