@@ -54,7 +54,7 @@ const router = new Router({
         {
           path: '/detail',
           component: DetailPage,
-          name: 'Cat Page'
+          name: 'Detail Page'
         }
       ]
     },

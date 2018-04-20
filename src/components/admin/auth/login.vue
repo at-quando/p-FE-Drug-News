@@ -37,6 +37,7 @@ export default {
   },
   methods: {
     submitForm (formName) {
+      console.log('here is formName:', formName)
       this.$refs[formName].validate((valid) => {
         if (valid) {
           this.login(this.$refs[formName]._props.model).then(res => {

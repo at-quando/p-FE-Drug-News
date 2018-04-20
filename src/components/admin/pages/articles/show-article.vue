@@ -16,7 +16,7 @@ export default {
   },
   mounted () {
     console.log(this.$route.params.id)
-    this.showArticle(this.$route.params.id).then( res => {
+    this.showArticle(this.$route.params.id).then(res => {
       this.article = res.body
     })
   },

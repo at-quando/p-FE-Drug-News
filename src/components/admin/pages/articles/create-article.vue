@@ -90,7 +90,7 @@ export default {
           return false
         }
       })
-    },
+    }
   },
   mounted () {
     document.getElementsByClassName('ql-image')[0].onclick = () => {
@@ -98,7 +98,7 @@ export default {
       document.getElementsByClassName('ql-image')[1].onchange = () => {
         this.getLinkImg(event.target.files[0]).then(res => {
           this.linkImg = res.body.link
-        }).catch (function (e) {
+        }).catch(function (e) {
           console.log(e)
         })
       }
